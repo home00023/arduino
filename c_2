@@ -1,0 +1,53 @@
+void binary(int index, int n, char *b){ 
+    char indexMax = b[0] ;
+	int count=0;
+	char indexTemp ;
+	int countTemp = 1;
+	int temp = 0;
+	int finalend;
+	int i,p;
+	
+    if(index>=n){ 
+       b[index]='\0';                                
+       printf("%s\n", b);
+  
+	   if (b[index] =='0' && b[index + 1]=='0'){
+			count++;    
+       }           
+    	if (b[index] != b[index + 1]){
+			indexTemp = b[index + 1];
+			temp=index + 1;}		
+        if (b[temp]=='0'&& b[temp + 1]=='0'){
+			countTemp++;
+		}
+		if (b[temp] != b[temp + 1]){
+			if (countTemp >= count){
+				count = countTemp;
+				indexMax = indexTemp;
+				if (temp + 1 <=b[index]){
+					indexTemp =b[temp + 1];
+					countTemp = 1;
+					finalend = temp- count+1;}
+			} 
+		}	
+}  else{ 
+        b[index]='0'; 
+        binary(index+1, n,b);   
+        b[index]='1'; 
+        binary(index+1, n, b); 
+    } 
+//    printf("%s\n", count);
+  
+}
+
+int main(void){ 
+    int n; 
+    char b[20]; 
+    
+    printf("輸入字串長度 n: "); 
+    scanf("%d", &n); 
+    binary(0, n, b); 
+    
+system("pause");
+return 0;
+} 
