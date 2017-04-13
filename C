@@ -1,0 +1,30 @@
+#include <stdio.h> 
+#include <stdlib.h>
+
+void binary(int index, int n, char *b){ 
+
+    if(index>=n){ 
+       b[index]='\0';     
+       printf("%s\n", b); 
+    
+    }
+    else{ 
+        b[index]='0'; 
+        binary(index+1, n,b); 
+        b[index]='1'; 
+        binary(index+1, n, b); 
+    } 
+      
+} 
+ 
+int main(void){ 
+    int n,i; 
+    char b[20]; 
+    
+    printf("輸入字串長度 n: "); 
+    scanf("%d", &n); 
+    binary(0, n, b); 
+   
+system("pause");
+return 0;
+} 
