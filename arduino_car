@@ -1,0 +1,27 @@
+//qx,qy is target location
+//cx,cy is own position
+
+void working(){ 
+   if((qx==cX)&&(qy==cY)){
+     sp();
+     Serial.println("(qx=cX)&&(qy=cY):stop");
+   }else if(qx>cX){
+       rt();go();
+       Serial.println("qx>cX:right");       
+  }else{
+    lt();go();
+    Serial.println("qx<cX:left");}
+    
+  if((qx==cX)&&(qy==cY)){
+     sp();
+     Serial.println("(qx=cX)&&(qy=cY):stop");
+   }if(qy==cY){
+     sp();
+     Serial.println("qy=cY:stop");
+  }else if(qy>cY){
+      go();
+      Serial.println("qy>cY:go);
+} else
+       go();
+       Serial.println("qy<cY:go");}
+}
